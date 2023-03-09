@@ -1,0 +1,23 @@
+openapi: 3.0.0
+info:
+  title: t(:title)
+  version: '1.0'
+  description: main description
+paths:
+  /test-signature:
+    post:
+      tags:
+        - test-signature
+      security: []
+      summary: test 1
+      responses:
+        '200':
+          $ref: '#/components/responses/TestSignatureResponse'
+components:
+  responses:
+    TestSignatureResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: schemas.yaml#/TestSignatureResponse
