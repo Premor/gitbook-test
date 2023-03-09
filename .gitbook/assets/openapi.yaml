@@ -15,6 +15,33 @@ paths:
           content:
             application/json:
               schema:
-                $ref: schemas.yaml#/TestSignatureResponse
+                $ref: '#/components/schemas/TestSignatureResponse'
 components:
-  responses: {}
+  schemas:
+    TestSignatureResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        response:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: string
+                example: Signature check failed
+              example: []
+            checkSignatureResult:
+              type: boolean
+              example: true
+            rightSignature:
+              type: string
+              example: 69e377f1f8759e9810ce3a4c033c87036cd9affaf3ef68ad43799a425ce88da2
+            signature:
+              type: string
+              example: 69e377f1f8759e9810ce3a4c033c87036cd9affaf3ef68ad43799a425ce88da2
+            receivedBody:
+              type: string
+              example: '{"nonce":1643881363781}'
