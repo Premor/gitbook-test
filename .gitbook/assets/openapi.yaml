@@ -1,27 +1,33 @@
 openapi: 3.0.0
 info:
-  title: qweEWQ
+  title: test
   version: '1.0'
-  description: main description
+  description: test description
 paths:
   /test-signature:
     post:
       tags:
-        - test-signature
+        - base
       security: []
-      summary: test 3
+      summary: Проверка корректности подписи x-api-signature
       responses:
         '200':
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TestSignatureResponse'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TestSignatureParams'
+  /available-currencies:
+    post:
+      tags:
+        - base
+      security: []
+      summary: Получение монет доступных для приема/отправки транзакций
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvailableCurrenciesResponse'
 components:
   schemas:
     TestSignatureResponse:
@@ -51,22 +57,66 @@ components:
             receivedBody:
               type: string
               example: '{"nonce":1643881363781}'
-    TestSignatureParams:
+    AvailableCurrencyNetwork:
       type: object
       properties:
-        test1:
+        name:
+          description: Имя сети
           type: string
-          example: test 1
-        test2:
-          type: object
-          properties:
-            qwe:
-              type: string
-              example: qweewqewqewq
-            ewq:
-              type: boolean
-              example: true
-          required:
-            - qwe
-      required:
-        - test1
+          example: ethereum
+        allowDeposit:
+          description: Флаг указывает доступен ли прием входящих транзакций в данный момент
+          type: boolean
+        allowWithdrawal:
+          description: >-
+            Флаг указывает доступна ли отправка исходящих транзакций в данный
+            момент
+          type: boolean
+        withdrawalFee:
+          description: Стоимость исходящей транзакции
+          type: string
+          example: '0.0005'
+        withdrawalMin:
+          description: Минимальная сумма для создания исходящей транзакции
+          type: string
+          example: '0.001'
+        addressRegex:
+          description: Регулярное выражение для валидации адресов
+          type: string
+          example: ^(0x)[0-9A-Fa-f]{40}$
+        tagRegex:
+          description: >-
+            Регулярное выражение для валидации тега(memo) адреса. Может быть
+            пустая строка в случаях когда сеть не поддерживает работу с тегом
+          type: string
+          example: ''
+    AvailableCurrency:
+      type: object
+      properties:
+        currency:
+          description: Тикер монеты
+          type: string
+          example: ETH
+        allowDeposit:
+          description: Флаг указывает доступен ли прием входящих транзакций в данный момент
+          type: boolean
+        allowWithdrawal:
+          description: >-
+            Флаг указывает доступна ли отправка исходящих транзакций в данный
+            момент
+          type: boolean
+        networks:
+          description: Список сетей в которых возможен прием/отправка транщакций
+          type: array
+          items:
+            $ref: '#/components/schemas/AvailableCurrencyNetwork'
+    AvailableCurrenciesResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: 'true'
+        response:
+          type: array
+          items:
+            $ref: '#/components/schemas/AvailableCurrency'
