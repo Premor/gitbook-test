@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: t(:title)
+  title: qweEWQ
   version: '1.0'
   description: main description
 paths:
@@ -9,7 +9,7 @@ paths:
       tags:
         - test-signature
       security: []
-      summary: test 1
+      summary: test 2
       responses:
         '200':
           content:
