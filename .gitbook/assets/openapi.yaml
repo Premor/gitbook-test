@@ -68,3 +68,5 @@ components:
               example: true
           required:
             - qwe
+      required:
+        - test1
