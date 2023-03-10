@@ -14,4 +14,5 @@
     * [About](page-2/page-3/about.md)
     * [API reference](page-2/page-3/api-reference/README.md)
       * [Test signature](page-2/page-3/api-reference/test-signature.md)
+      * [Available currencies](page-2/page-3/api-reference/available-currencies.md)
     * [Specification](https://firebasestorage.googleapis.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fnea6JdesKjvkkEBoAGyc%2Fimports%2FjGvTGMYEGFIxFWS2UupE%2Fopenapi.yaml?alt=media\&token=98e14cf1-a09c-4117-a9d4-d1962e84afca)
