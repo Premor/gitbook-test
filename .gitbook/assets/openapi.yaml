@@ -9,13 +9,19 @@ paths:
       tags:
         - test-signature
       security: []
-      summary: test 2
+      summary: test 3
       responses:
         '200':
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TestSignatureResponse'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestSignatureParams'
 components:
   schemas:
     TestSignatureResponse:
@@ -45,3 +51,20 @@ components:
             receivedBody:
               type: string
               example: '{"nonce":1643881363781}'
+    TestSignatureParams:
+      type: object
+      properties:
+        test1:
+          type: string
+          example: test 1
+        test2:
+          type: object
+          properties:
+            qwe:
+              type: string
+              example: qweewqewqewq
+            ewq:
+              type: boolean
+              example: true
+          required:
+            - qwe
