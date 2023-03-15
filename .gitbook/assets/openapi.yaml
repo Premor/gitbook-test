@@ -9,7 +9,7 @@ paths:
       tags:
         - base
       security: []
-      summary: Проверка корректности подписи x-api-signature test1
+      summary: Проверка корректности подписи x-api-signature
       responses:
         '200':
           content:
