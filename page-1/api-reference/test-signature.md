@@ -1,5 +1,5 @@
 # Test signature
 
-{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/test-signature" method="post" %}
-[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/test-signature" method="post" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}

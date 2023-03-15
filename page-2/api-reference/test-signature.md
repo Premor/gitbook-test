@@ -1,5 +1,5 @@
 # Test signature
 
-{% swagger src="../../.gitbook/assets/openapi (2).yaml" path="/test-signature" method="post" %}
-[openapi (2).yaml](<../../.gitbook/assets/openapi (2).yaml>)
+{% swagger src="broken-reference" path="/test-signature" method="post" %}
+[Broken file](broken-reference)
 {% endswagger %}
