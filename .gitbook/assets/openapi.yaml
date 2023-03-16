@@ -120,3 +120,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AvailableCurrency'
+servers: 
+  -
+    url: "https://onchainpay.xyz/",
+    description: "Development server"
